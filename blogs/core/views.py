@@ -14,7 +14,7 @@ def index():
     for page_num in blog_posts.iter_pages(left_edge=1, right_edge = 1, left_current=1, right_current=2):
         mylist.append(page_num)
 
-        maxi = max(mylist)
+    maxi = max(mylist)
     return render_template('index.htm',blog_posts=blog_posts, maxi  =maxi)
 
 @core.route('/info')

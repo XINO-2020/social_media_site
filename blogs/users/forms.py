@@ -22,10 +22,10 @@ class RegistrationForm(FlaskForm):
 
     def validate_email(self,field):
         if User.query.filter_by(email=field.data).first():
-            raise ValidationError('your email has already been registered')
+            raise ValidationError('The email you chose has already been registered')
     def validate_username(self,field):
         if User.query.filter_by(username=field.data).first():
-            raise ValidationError('your username3 has already been registered')
+            raise ValidationError('The username yuo chose has already been registered')
 class UpdateUserForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(),Email()])
     username = StringField('Username', validators=[DataRequired()])
@@ -35,8 +35,8 @@ class UpdateUserForm(FlaskForm):
     def validate_email(self,field):
         if field.data != current_user.email:
             if User.query.filter_by(email=field.data).first():
-                raise ValidationError('your email has already been registered')
+                raise ValidationError('The email you chose has already been registered')
     def validate_username(self,field):
         if field.data != current_user.username:
             if User.query.filter_by(username=field.data).first():
-                raise ValidationError('your username has already been registered')
+                raise ValidationError('your username you chose has already been registered')

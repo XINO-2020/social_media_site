@@ -84,7 +84,14 @@ def account():
 
 @users.route("/<username>")
 def user_posts(username):
+    maxi = 0
+    mylist = []
     page = request.args.get('page', 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()
     blog_posts = BlogPost.query.filter_by(author=user).order_by(BlogPost.date.desc()).paginate(page=page,per_page = 5)
-    return render_template('user_blog_post.htm', blog_posts = blog_posts, user = user)
+
+    for page_num in blog_posts.iter_pages(left_edge=1, right_edge = 1, left_current=1, right_current=2):
+        mylist.append(page_num)
+
+    maxi = max(mylist)
+    return render_template('user_blog_post.htm', blog_posts = blog_posts, user = user,maxi = maxi)

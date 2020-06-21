@@ -41,9 +41,9 @@
       <div class="form-group">
         {{form.submit(class = 'btn btn-primary')}}
       </div>
-
-
     </form>
+    <a href="{{url_for('users.user_posts', username = current_user.username)}}">  <button class = "btn btn-primary" type="button"> Read Your Posts</button></a>
+
   </div>
 
 </div>
