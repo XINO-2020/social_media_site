@@ -1,0 +1,55 @@
+{%extends "base.htm"%}
+{%block content%}
+  <div class="jumbotron container border" align ="center">
+    <h1>Social Bloggers</h1><br>
+    {%if current_user.is_authenticated%}
+      <div class="container">
+        {%for post in blog_posts.items%}
+          <div class="card">
+            <div class="card-body">
+              <div class="container jumbotron">
+                <h2><a class = 'card-title' href="{{url_for('blogpost.blog_post', blog_post_id=post.id)}}">{{post.title}}</a></h2>
+                <a href="{{url_for('users.user_posts',username = post.author.username)}}">Written By: {{post.author.fname}}({{post.author.username}})</a>
+                <p>Published on: {{post.date.strftime('%Y-%m-%d')}}</p>
+                <p>{{post.text[:20]}}...</p>
+                <a class = "btn btn-primary" href="{{url_for('blogpost.blog_post', blog_post_id=post.id)}}">Read blog post</a>
+              </div>
+
+            </div>
+
+          </div>
+        {%endfor%}
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+
+            {%for page_num in blog_posts.iter_pages(left_edge=1, right_edge = 1, left_current=1, right_current=2) %}
+              {%if blog_posts.page == page_num%}
+
+                <li class='page-item disabled'>
+                  <a class="page-link" href="{{url_for('core.index',page=page_num)}}">{{page_num}}</a>
+                </li>
+              {%else%}
+              <li class='page-item '>
+                <a class="page-link" href="{{url_for('core.index',page=page_num)}}">{{page_num}}</a>
+              </li>
+              {%endif%}
+
+
+            {%endfor%}
+          </ul>
+        </nav>
+
+      </div>
+
+
+
+    {%else%}
+      <a href="{{url_for('users.register')}}">Sign up now</a><br>
+      <a href="{{url_for('users.login')}}">Sign in</a><br>
+    {%endif%}
+
+
+  </div>
+
+
+{%endblock%}
