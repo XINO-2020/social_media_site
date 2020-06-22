@@ -1,6 +1,7 @@
 {%extends "base.htm"%}
 {%block content%}
-  <div class="jumbotron container border" align ="center">
+  <div class="container " align ="center">
+    {%if current_user.is_authenticated%}
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
         {%if blog_posts.page > 1%}
@@ -48,12 +49,13 @@
       {%endif%}
       </ul>
     </nav>
+    {%endif%}
 
-    <h1>Social Bloggers</h1><br>
+    <h1 class = "text-white">Social Bloggers</h1><br>
     {%if current_user.is_authenticated%}
       <div class="container">
         {%for post in blog_posts.items%}
-          <div class="card">
+          <div class="card" style="width: 18rem;">
             <div class="card-body">
               <div class="container jumbotron">
                 <h2><a class = 'card-title' href="{{url_for('blogpost.blog_post', blog_post_id=post.id)}}">{{post.title}}</a></h2>
@@ -64,8 +66,8 @@
               </div>
 
             </div>
-
           </div>
+          <br><br>
         {%endfor%}
         <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center">
