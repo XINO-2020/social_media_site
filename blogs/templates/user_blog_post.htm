@@ -11,7 +11,7 @@
   </div>
 
 
-<div class="container" style="width: 18rem;">
+<div class="container" style="width: 25rem;">
   {%for post in blog_posts.items%}
   <div class="container jumbotron" align = "center">
     <h2><a href="{{url_for('blogpost.blog_post',blog_post_id=post.id)}}">{{post.title}}</a></h2>
@@ -58,7 +58,7 @@
     <ul class="pagination justify-content-center">
       {%if blog_posts.page > 1%}
         <li class="page-item">
-          <a class="page-link" href="{{url_for('core.index',username = user.username, page = blog_posts.page - 1)}}" aria-label="Previous">
+          <a class="page-link" href="{{url_for('users.user_posts',username = user.username, page = blog_posts.page - 1)}}" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
             <span class="sr-only">Previous</span>
           </a>
@@ -85,7 +85,7 @@
       {%endfor%}
       {%if blog_posts.page < maxi%}
         <li class="page-item">
-          <a class="page-link" href="{{url_for('core.index',username = user.username, page = blog_posts.page + 1)}}" aria-label="Next">
+          <a class="page-link" href="{{url_for('users.user_posts',username = user.username, page = blog_posts.page + 1)}}" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>
