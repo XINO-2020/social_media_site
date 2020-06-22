@@ -4,6 +4,7 @@ from flask_login import current_user, login_required
 from blogs import db
 from blogs.models import BlogPost
 from blogs.blogpost.forms import BlogPostForm
+from blogs.blogpost.picture_handler import add_blog_pic
 
 blogpost  =Blueprint('blogpost', __name__)
 
@@ -19,6 +20,11 @@ def create_post():
         blog_post = BlogPost(title=form.title.data,
                                 text=form.text.data,
                                 user_id=current_user.id)
+        if form.picture.data is not None:
+            id = current_user.id
+            pic = add_blog_pic(form.picture.data,id)
+            blog_post.blog_image = pic
+            db.session.commit()
         db.session.add(blog_post)
         db.session.commit()
         flash('Blog Post Created')
@@ -29,8 +35,9 @@ def create_post():
 @blogpost.route('/<int:blog_post_id>')
 def blog_post(blog_post_id):
     blog_post = BlogPost.query.get_or_404(blog_post_id)
+    blog_image = url_for('static', filename= blog_post.blog_image)
     return render_template('blog_post.htm', title = blog_post.title,
-                            date = blog_post.date, post = blog_post, text = blog_post.text)
+                            date = blog_post.date, post = blog_post, text = blog_post.text, blog_image = blog_image)
 #u
 @blogpost.route('/<int:blog_post_id>/update',methods = ['GET','POST'])
 @login_required

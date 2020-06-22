@@ -1,7 +1,7 @@
 {%extends "base.htm"%}
 {%block content%}
   <div class="container">
-    <form class="form-group" method="POST">
+    <form class="form-group" method="POST" action="" enctype="multipart/form-data">
       {{form.hidden_tag()}}
       <div class="form-group">
         {{form.title.label(class = 'form-control-label text-white bg-dark')}}
@@ -12,7 +12,16 @@
         {{form.text(class = 'form-control form-control')}}
       </div>
       <div class="form-group">
-        {{form.submit(class  ='btn btn-outline-info')}}
+        {{form.picture.label(class="form-group text-white col-md-6")}}
+        {{form.picture(class="form-control-file col-md-6 text-white ")}}
+        {%if form.picture.errors%}
+          {%for error in form.picture.errors%}
+            <small class = 'text-danger'>{{error}}</small>
+          {%endfor%}
+        {%endif%}
+      </div>
+      <div class="form-group">
+        {{form.submit(class  ='btn  btn-primary', align ='center')}}
       </div>
     </form>
 

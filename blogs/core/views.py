@@ -8,7 +8,7 @@ core = Blueprint('core',__name__)
 @core.route('/')
 def index():
     maxi = 0
-    mylist = []
+    mylist = [1]
     page = request.args.get('page',1,type = int)
     blog_posts = BlogPost.query.order_by(BlogPost.date.desc()).paginate(page=page,per_page=5)
     for page_num in blog_posts.iter_pages(left_edge=1, right_edge = 1, left_current=1, right_current=2):

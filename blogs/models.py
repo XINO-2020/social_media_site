@@ -35,7 +35,7 @@ class User(db.Model,UserMixin):
 class BlogPost(db.Model):
 
     users = db.relationship(User)
-
+    blog_image = db.Column(db.String(64), nullable = False, default = 'None.png')
     id = db.Column(db.Integer,primary_key=True)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable=False)
 
