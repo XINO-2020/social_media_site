@@ -17,7 +17,7 @@
     <h2><a href="{{url_for('blogpost.blog_post',blog_post_id=post.id)}}">{{post.title}}</a></h2>
     Written by: <a href="{{url_for('users.user_posts',username = post.author.username)}}">{{post.author.fname}}({{post.author.username}})</a>
     <p class="text-muted">Published on : {{post.date.strftime("%Y-%m-%d")}}</p>
-      <img src="{{url_for('static', filename= post.blog_image)}}" align = "center">
+    <a href="{{url_for('static', filename= post.blog_image)}}"><img src="{{url_for('static', filename= post.blog_image)}}" align = "center" width = "200" height = "110"></a>
     <br>
     <p>{{post.text[:20]}}...</p>
     <div>

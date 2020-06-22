@@ -2,7 +2,6 @@
 {%block content%}
   <div class="container " align ="center">
     {%if current_user.is_authenticated%}
-    {%if blog_posts.page > 1%}
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
         {%if blog_posts.page > 1%}
@@ -51,7 +50,6 @@
       </ul>
     </nav>
     {%endif%}
-    {%endif%}
 
     <h1 class = "text-white">Social Bloggers</h1><br>
     {%if current_user.is_authenticated%}
@@ -63,7 +61,7 @@
                 <h2><a class = 'card-title' href="{{url_for('blogpost.blog_post', blog_post_id=post.id)}}">{{post.title}}</a></h2>
                 <a href="{{url_for('users.user_posts',username = post.author.username)}}">Written By: {{post.author.fname}}({{post.author.username}})</a>
                 <p>Published on: {{post.date.strftime('%Y-%m-%d')}}</p>
-                <img src="{{url_for('static', filename= post.blog_image)}}" align = "center">
+                <a href="{{url_for('static', filename= post.blog_image)}}"><img src="{{url_for('static', filename= post.blog_image)}}" align = "center" width = "200" height = "110"></a>
                 <p>{{post.text[:20]}}...</p>
                 <a class = "btn btn-primary" href="{{url_for('blogpost.blog_post', blog_post_id=post.id)}}">Read blog post</a>
               </div>
@@ -72,7 +70,7 @@
           </div>
           <br><br>
         {%endfor%}
-        {%if blog_posts.page > 1%}
+
         <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center">
             {%if blog_posts.page > 1%}
@@ -120,7 +118,6 @@
           {%endif%}
           </ul>
         </nav>
-        {%endif%}
 
       </div>
 

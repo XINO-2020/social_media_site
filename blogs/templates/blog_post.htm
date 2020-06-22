@@ -6,7 +6,9 @@
 
       <h4 align ="right">Written by: {{post.author.fname}}({{post.author.username}})</h4>
       <h6 align = "right">Published: {{post.date.strftime('%B %d, %Y')}}</h6><br><br>
-      <img src="{{blog_image}}" alt="" align = "center">
+      <div align = "center">
+        <a href="{{url_for('static', filename= post.blog_image)}}"><img src="{{url_for('static', filename= post.blog_image)}}" align = "center" width = "200" height = "110"></a><br><br><br>
+      </div>
       <p>{{post.text}}</p>
     </div>
 
