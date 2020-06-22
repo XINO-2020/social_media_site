@@ -11,18 +11,19 @@
   </div>
 
 
-<div class="container jumbotron">
+<div class="container" style="width: 18rem;">
   {%for post in blog_posts.items%}
-  <div class="container">
+  <div class="container jumbotron" align = "center">
     <h2><a href="{{url_for('blogpost.blog_post',blog_post_id=post.id)}}">{{post.title}}</a></h2>
     Written by: <a href="{{url_for('users.user_posts',username = post.author.username)}}">{{post.author.fname}}({{post.author.username}})</a>
     <p class="text-muted">Published on : {{post.date.strftime("%Y-%m-%d")}}</p>
     <br>
-    <p>{{post.text}}</p>
-    <br>
+    <p>{{post.text[:20]}}...</p>
     <div>
+      {%if current_user == post.author%}
       <a href="{{url_for('blogpost.update', blog_post_id = post.id)}}">Update</a>
       <button type="button" class = "btn btn-danger" data-toggle = 'modal' data-target = "#del">Delete</button>
+      <br><br>
       <div class="modal" tabindex="-1" role="dialog" id = "del">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -45,7 +46,7 @@
     </div>
   </div>
   </div>
-
+{%endif%}
     </div>
 
   </div>
