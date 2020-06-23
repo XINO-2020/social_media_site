@@ -3,7 +3,7 @@
   <div class="container">
     <div class="container jumbotron">
       <h1 align = 'center'>{{title}}</h1>
-
+      <a href="{{url_for('static', filename= post.author.profile_image)}}"><img src="{{url_for('static', filename= post.author.profile_image)}}"  width = "150"></a>
       <h4 align ="right">Written by: {{post.author.fname}}({{post.author.username}})</h4>
       <h6 align = "right">Published: {{post.date.strftime('%B %d, %Y')}}</h6><br><br>
       <div align = "center">
@@ -41,6 +41,9 @@
   </div>
 </div>
 
+    </div>
+    <div class="container" align = "center">
+      <br><a href="{{url_for('users.user_posts' , username = post.author.username)}}" class="btn btn-primary">Read more Posts by {{post.author.username}}</a>
     </div>
   </div>
 
