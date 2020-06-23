@@ -8,3 +8,6 @@ class BlogPostForm(FlaskForm):
     picture = FileField('Any Picture ', validators=[FileAllowed(['jpg', 'png'])])
     text = TextAreaField('Text', validators=[DataRequired()])
     submit = SubmitField('Post')
+class ReplyForm(FlaskForm):
+    comment = StringField('Comment', validators=[DataRequired()])
+    submit = SubmitField('Post')

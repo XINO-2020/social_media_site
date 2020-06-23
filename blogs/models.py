@@ -38,7 +38,7 @@ class BlogPost(db.Model):
     blog_image = db.Column(db.String(64), nullable = False, default = 'None.png')
     id = db.Column(db.Integer,primary_key=True)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable=False)
-    
+    replies = db.Column(db.String, default = "")
     date = db.Column(db.DateTime,nullable = False,default=datetime.utcnow)
     title = db.Column(db.String(140),nullable=False)
     text = db.Column(db.Text,nullable = False)

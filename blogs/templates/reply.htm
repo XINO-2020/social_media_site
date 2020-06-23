@@ -1,0 +1,22 @@
+{%extends "base.htm"%}
+{%block content%}
+  <form class="form-group" method="POST">
+    {{form.hidden_tag()}}
+    <div class="form-group">
+      {{form.comment.label(class = "form-group")}}
+      {{form.comment(class = "form-control col-md-6")}}
+    </div>
+    <div class="form-group">
+      {{form.submit(class = "btn btn-primary")}}
+    </div>
+  </form>
+  <div class="text-white">
+      {%for user in username%}
+        <a href="{{url_for('users.user_posts' , username = user )}}">{{user}}</a><br>
+        <small>{{time.pop(0)}}</small><br>
+        <p>{{replies.pop(0)}}</p>
+
+      {%endfor%}
+  </div>
+
+{%endblock%}
