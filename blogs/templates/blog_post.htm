@@ -10,7 +10,9 @@
         <a href="{{url_for('static', filename= post.blog_image)}}"><img src="{{url_for('static', filename= post.blog_image)}}" alt = "" align = "center"></a><br><br><br>
       </div>
       <p>{{post.text}}</p>
-      <a class = "btn btn-primary" href="{{url_for('blogpost.make_reply', blog_post_id = post.id)}}">Read/Write Replies</a>
+      <div align = "center">
+          <a class = "btn btn-primary text-center" href="{{url_for('blogpost.make_reply', blog_post_id = post.id)}}">Comments</a>
+      </div>
     </div>
 
 

@@ -68,6 +68,9 @@
                 <p>{{post.text[:20]}}...</p>
                 <a class = "btn btn-primary" href="{{url_for('blogpost.blog_post', blog_post_id=post.id)}}">Read blog post</a>
               </div>
+              <div align = "center">
+                  <a class = "btn btn-primary text-center" href="{{url_for('blogpost.make_reply', blog_post_id = post.id)}}">Comments</a>
+              </div>
 
             </div>
           </div>

@@ -24,7 +24,10 @@
     <div>
       {%if current_user == post.author%}
       <a href="{{url_for('blogpost.update', blog_post_id = post.id)}}">Update</a>
-      <button type="button" class = "btn btn-danger" data-toggle = 'modal' data-target = "#del">Delete</button>
+      <button type="button" class = "btn btn-danger" data-toggle = 'modal' data-target = "#del">Delete</button><br><br>
+      <div align = "center">
+          <a class = "btn btn-primary text-center" href="{{url_for('blogpost.make_reply', blog_post_id = post.id)}}">Comments</a>
+      </div>
       <br><br>
       <div class="modal" tabindex="-1" role="dialog" id = "del">
         <div class="modal-dialog" role="document">

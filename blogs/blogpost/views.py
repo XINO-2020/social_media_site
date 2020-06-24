@@ -89,5 +89,5 @@ def make_reply(blog_post_id):
         db.session.add(replies)
         db.session.commit()
         return redirect(url_for('blogpost.make_reply' , blog_post_id = blog_post_id))
-    current_blog_post_replies = Reply.query.filter_by(blog_id = blog_post_id)
+    current_blog_post_replies = Reply.query.order_by(Reply.time.desc()).filter_by(blog_id = blog_post_id)
     return render_template('reply.htm', form = form, replies = current_blog_post_replies)

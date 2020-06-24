@@ -1,19 +1,21 @@
 {%extends "base.htm"%}
 {%block content%}
+
   <form class="form-group" method="POST">
     {{form.hidden_tag()}}
     <div class="form-group">
-      {{form.comment.label(class = "form-group")}}
-      {{form.comment(class = "form-control col-md-6")}}
+      {{form.comment.label(class = "form-group" )}}
+      {{form.comment(class = "form-control col-md-6", placeholder = "Comment")}}
     </div>
     <div class="form-group">
       {{form.submit(class = "btn btn-primary")}}
     </div>
   </form>
-  <div class="text-white">
+  <div class="text-left" align = "center">
     {%if replies != []%}
       {%for reply in replies%}
-        <div class="container text-dark jumbotron card" style="width: 18rem;" align = "left">
+        <div class="container text-dark jumbotron" style="width: 18rem;">
+          <a href="{{url_for('static', filename= reply.user_reply.profile_image)}}"><img src="{{url_for('static', filename= reply.user_reply.profile_image)}}" class = "rounded-circle" width = "50"></a>
           <a href="{{url_for('users.user_posts', username = reply.user_reply.username)}}"><h3>{{reply.user_reply.username}}</h3></a>
           <small>{{reply.time.strftime('%x - %X')}}</small>
           <p>{{reply.reply}}</p>
