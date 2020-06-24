@@ -11,12 +11,15 @@
     </div>
   </form>
   <div class="text-white">
-      {%for user in username%}
-        <a href="{{url_for('users.user_posts' , username = user )}}">{{user}}</a><br>
-        <small>{{time.pop(0)}}</small><br>
-        <p>{{replies.pop(0)}}</p>
-
+    {%if replies != []%}
+      {%for reply in replies%}
+        <div class="container">
+          <h3>{{reply.user_reply.username}}</h3>
+          <small>{{reply.time.strftime('%x - %X')}}</small>
+          <p>{{reply.reply}}</p>
+        </div>
       {%endfor%}
+    {%endif%}
   </div>
 
 {%endblock%}
