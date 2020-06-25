@@ -1,0 +1,85 @@
+2/*@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+/* The element to apply the animation to */
+/*.animate-left {
+  width: 400px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+*/
+.col{
+	color: #72829c;
+
+}
+.p2{
+  color:black;
+}
+/* The animation code */
+@keyframes left {
+  0%   {background-color:black; left:-50px; top:0px;}
+  100% {background-color:white; left:0px; top:0px;}
+}
+.animate-left {
+  width: 500px;
+  height: 525px;
+  position: relative;
+  background-color: white;
+  animation-name: left;
+  animation-duration: 2s;
+}
+@keyframes right {
+  0%   {background-color:black; left:50px; top:0px;}
+  100% {background-color:white; left:0px; top:0px;}
+}
+.animate-right {
+  width: 400px;
+  height: 450px;
+  position: relative;
+  background-color: white;
+  animation-name: right;
+  animation-duration: 2s;
+}
+body{
+  background-color: #f8f2fa;
+	font-family: 'Pangolin', cursive;
+	font-family: 'Ubuntu', sans-serif;
+}
+nav{
+  background-color: #ffffff;
+}
+}
+
+
+.sidebar {
+  margin-top: 200px;
+  width: 300px;
+  right: 150px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 50%;
+  overflow: auto;
+
+}
+.pages{
+  margin-left: 975px;
+
+}
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 0px; width :0px;}
+
+}
+.reply{
+	margin-left:0px;
+}
+.navbar-spacing{
+	margin-right: 20px;
+}
+.account-icon{
+	margin-left: 955px;
+}
+.reset-icon{
+	margin-top: 8px;
+}
