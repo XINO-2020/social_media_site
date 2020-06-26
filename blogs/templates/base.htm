@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active navbar-spacing">
-          <a class="nav-link" href="{{url_for('core.index')}}">
+          <a class="nav-link" title="Home" href="{{url_for('core.index')}}">
             <svg class="bi bi-house-door" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
               <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
@@ -19,7 +19,7 @@
           </a>
         </li>
         <li class="nav-item active navbar-spacing">
-          <a class="nav-link" href="{{url_for('core.info')}}">
+          <a class="nav-link" title="Info" href="{{url_for('core.info')}}">
             <svg class="bi bi-info-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
             </svg> <span class="sr-only">(current)</span>
@@ -27,7 +27,7 @@
         </li>
         {%if current_user.is_authenticated%}
         <li class="nav-item active navbar-spacing">
-          <a class="nav-link" href="{{url_for('users.logout')}}">
+          <a class="nav-link" title="logout" href="{{url_for('users.logout')}}">
             <svg class="bi bi-power" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
               <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
@@ -36,14 +36,14 @@
           </a>
         </li>
         <li class="nav-item active navbar-spacing">
-          <a class="nav-link" href="{{url_for('blogpost.create_post')}}">
+          <a class="nav-link" title="Create Post" href="{{url_for('blogpost.create_post')}}">
             <svg class="bi bi-plus-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
             </svg> <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item active account-icon">
-          <a class="nav-link" href="{{url_for('users.account')}}">
+          <a class="nav-link" title="Your account" href="{{url_for('users.account')}}">
             <svg class="bi bi-person-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
               <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
@@ -53,14 +53,14 @@
         </li>
         {%else%}
         <li class="nav-item active navbar-spacing">
-          <a class="nav-link" href="{{url_for('users.login')}}"> Log in <span class="sr-only">(current)</span></a>
+          <a class="nav-link" title="Login" href="{{url_for('users.login')}}"> Log in <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active navbar-spacing">
-          <a class="nav-link" href="{{url_for('users.register')}}"> Register <span class="sr-only">(current)</span></a>
+          <a class="nav-link" title="Register" href="{{url_for('users.register')}}"> Register <span class="sr-only">(current)</span></a>
         </li>
       </ul>
         {%endif%}
-        <a href="" class="navbar-spacing reset-icon" >
+        <a href="" title="Reset" class="navbar-spacing reset-icon" >
         <svg class="bi bi-arrow-clockwise" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M3.17 6.706a5 5 0 0 1 7.103-3.16.5.5 0 1 0 .454-.892A6 6 0 1 0 13.455 5.5a.5.5 0 0 0-.91.417 5 5 0 1 1-9.375.789z"/>
           <path fill-rule="evenodd" d="M8.147.146a.5.5 0 0 1 .707 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 1 1-.707-.708L10.293 3 8.147.854a.5.5 0 0 1 0-.708z"/>
