@@ -11,10 +11,10 @@
       {{form.submit(class = "btn btn-primary")}}
     </div>
   </form>
-  <div class="text-left" align = "center">
+  <div class="text-left">
     {%if replies != []%}
       {%for reply in replies%}
-        <div class="container text-dark reply animate-left" style="width: 18rem;">
+        <div class="container text-dark reply" >
           <a href="{{url_for('static', filename= reply.user_reply.profile_image)}}"><img src="{{url_for('static', filename= reply.user_reply.profile_image)}}" class = "rounded-circle" width = "50"></a>
           <a href="{{url_for('users.user_posts', username = reply.user_reply.username)}}"><h3>{{reply.user_reply.username}}</h3></a>
           <small>{{reply.time.strftime('%x - %X')}}</small>
