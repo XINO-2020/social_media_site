@@ -10,6 +10,7 @@ from sqlalchemy import desc
 users = Blueprint('users', __name__)
 #register.login.logout.acoount.bloglist
 @users.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for("core.index"))
@@ -33,25 +34,28 @@ def register():
 @users.route('/login',methods=['GET','POST'])
 def login():
     error = ''
-    form = LoginForm()
-    if form.validate_on_submit():
+    if current_user.is_authenticated == False:
+        form = LoginForm()
+        if form.validate_on_submit():
 
-        user = User.query.filter_by(email=form.email.data).first()
+            user = User.query.filter_by(email=form.email.data).first()
 
-        if user is not None and user.check_password(form.password.data) :
+            if user is not None and user.check_password(form.password.data) :
 
-            login_user(user)
-            flash('Log in Success!')
+                login_user(user)
+                flash('Log in Success!')
 
-            next = request.args.get('next')
-            if next == None or not next[0] =='/':
-                next = url_for('core.index')
-            return redirect(next)
-        elif user is not None and user.check_password(form.password.data) == False:
-            error = 'Wrong Password'
-        elif user is None:
-            error = 'No such login Pls create one'
-    return render_template('login.htm', form=form, error = error)
+                next = request.args.get('next')
+                if next == None or not next[0] =='/':
+                    next = url_for('core.index')
+                return redirect(next)
+            elif user is not None and user.check_password(form.password.data) == False:
+                error = 'Wrong Password'
+            elif user is None:
+                error = 'No such login Pls create one'
+        return render_template('login.htm', form=form, error = error)
+    else:
+        return render_template('login_logout.htm')
 
 @users.route('/account',methods = ['GET','POST'])
 @login_required

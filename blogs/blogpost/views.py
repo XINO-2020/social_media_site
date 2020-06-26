@@ -33,6 +33,7 @@ def create_post():
 
 #r
 @blogpost.route('/<int:blog_post_id>')
+@login_required
 def blog_post(blog_post_id):
     blog_post = BlogPost.query.get_or_404(blog_post_id)
     blog_image = url_for('static', filename= blog_post.blog_image)
@@ -90,4 +91,4 @@ def make_reply(blog_post_id):
         db.session.commit()
         return redirect(url_for('blogpost.make_reply' , blog_post_id = blog_post_id))
     current_blog_post_replies = Reply.query.order_by(Reply.time.desc()).filter_by(blog_id = blog_post_id)
-    return render_template('reply.htm', form = form, replies = current_blog_post_replies)
+    return render_template('reply.htm', form = form, replies = current_blog_post_replies, blog_post_id = blog_post_id)

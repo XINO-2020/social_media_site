@@ -1,0 +1,15 @@
+{%extends "base.htm"%}
+
+{%block content%}
+<div class="container" align = "center">
+  <div class="card animate-left" style="height:18rem;">
+    <h1>You are Already logged in. Do you want to logout.</h1>
+    <br><br>
+    <div align = "center">
+      <a href="{{url_for('users.logout')}}" class="btn btn-primary" style="width:10rem;">
+        <h5>Logout</h5>
+      </a>
+    </div>
+  </div>
+</div>
+{%endblock%}
