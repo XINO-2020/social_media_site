@@ -2,7 +2,6 @@
 
 
 {%block content%}
-
   <form class="form-group" method="POST">
     {{form.hidden_tag()}}
     <div class="form-group">
@@ -13,6 +12,9 @@
       {{form.submit(class = "btn btn-primary")}}
     </div>
   </form>
+  <div align = "left">
+    <a href="{{url_for('blogpost.blog_post', blog_post_id = blog_post_id)}}" class = "btn btn-dark">Read Blog</a>
+  </div>
   <div class="text-left">
     {%if replies != []%}
       {%for reply in replies%}
