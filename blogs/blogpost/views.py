@@ -25,6 +25,8 @@ def create_post():
             pic = add_blog_pic(form.picture.data,id)
             blog_post.blog_image = pic
             db.session.commit()
+        form.title.data = ""
+        form.text.data = ""
         db.session.add(blog_post)
         db.session.commit()
         flash('Blog Post Created')

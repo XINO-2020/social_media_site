@@ -26,15 +26,7 @@
           </a>
         </li>
         {%if current_user.is_authenticated%}
-        <li class="nav-item active navbar-spacing">
-          <a class="nav-link" title="logout" href="{{url_for('users.logout')}}">
-            <svg class="bi bi-power" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
-              <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
-            </svg>
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
+
         <li class="nav-item active navbar-spacing">
           <a class="nav-link" title="Create Post" href="{{url_for('blogpost.create_post')}}">
             <svg class="bi bi-plus-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -42,14 +34,23 @@
             </svg> <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item active account-icon">
-          <a class="nav-link" title="Your account" href="{{url_for('users.account')}}">
+        <li class="nav-item active account-icon dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Your account">
             <svg class="bi bi-person-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
               <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
               <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
             </svg> <span class="sr-only">(current)</span>
-          </a>
+        </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{url_for('users.account')}}">Acount Info</a>
+            <a class="dropdown-item" title="logout" href="{{url_for('users.logout')}}">Logout
+              <svg class="bi bi-power" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+                <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+              </svg>
+            </a>
+          </div>
         </li>
         {%else%}
         <li class="nav-item active navbar-spacing">
