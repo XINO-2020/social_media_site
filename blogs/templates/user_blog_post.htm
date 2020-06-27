@@ -83,7 +83,7 @@
 
 
 
-  <nav aria-label="Page navigation example">
+{%block head%}
     <ul class="pagination justify-content-center">
       {%if blog_posts.page > 1%}
         <li class="page-item">
@@ -129,7 +129,7 @@
 
       {%endif%}
     </ul>
-  </nav>
+  {%endblock%}
 
 </div>
 
