@@ -1,10 +1,11 @@
 {%extends "base.htm"%}
-{%block content%}
-  <div class="container " align ="center">
+
+  <div align ="center">
     {%if current_user.is_authenticated%}
+    {%block head%}
     {%if n > 1%}
-    <br><br><br>
-    <nav class = "fixed-bottom text-right pages" aria-label="Page navigation example">
+
+
       <ul class="pagination justify-content-center">
         {%if blog_posts.page > 1%}
           <li class="page-item">
@@ -50,10 +51,12 @@
 
       {%endif%}
       </ul>
-    </nav>
-    {%endif%}
-    {%endif%}
 
+    {%endif%}
+    {%endblock%}
+    {%endif%}
+    {%block content%}
+    <div class="container " align ="center">
     <h1 class = "p2">Social Bloggers</h1><br>
     {%if current_user.is_authenticated%}
       <div class="container">
@@ -108,6 +111,6 @@
 
 
   </div>
-
+</div>
 
 {%endblock%}

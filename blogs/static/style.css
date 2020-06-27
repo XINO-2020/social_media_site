@@ -63,10 +63,7 @@ nav{
   overflow: auto;
 
 }
-.pages{
-  margin-left: 975px;
 
-}
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 0px; width :0px;}
 
@@ -78,7 +75,8 @@ nav{
 	margin-right: 20px;
 }
 .account-icon{
-	margin-left: 955px;
+	align-items: center;
+	margin-right: -5px;
 }
 .reset-icon{
 	margin-top: 8px;
