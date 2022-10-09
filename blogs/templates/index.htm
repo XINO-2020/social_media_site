@@ -5,7 +5,7 @@
     {%block head%}
     {%if n > 1%}
 
-
+    {%if current_user.is_authenticated%}
       <ul class="pagination justify-content-center">
         {%if blog_posts.page > 1%}
           <li class="page-item">
@@ -53,8 +53,10 @@
       </ul>
 
     {%endif%}
+    {%endif%}
     {%endblock%}
     {%endif%}
+
     {%block content%}
     <div class="container " align ="center">
     <h1 class = "p2">Social Bloggers</h1><br>
