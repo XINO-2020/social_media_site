@@ -20,13 +20,13 @@ def logout():
     return redirect(url_for("core.index"))
 
 
-@users.route('/predict')
+@users.route('/predict' , methods=['GET', 'POST'])
 def predict():
     form = PredictionForm()
-    model = pickle.load(
-        open('C:/Users/tijil/github/social_media_site/blogs/users/model.pkl', 'rb'))
+    model = pickle.load(open('blogs/users/model.pkl', 'rb'))
 
     if form.validate_on_submit():
+        print('lol')
         int_features = [form.age.data,
                         form.gender.data, form.family_history.data, form.self_employed.data, form.remote_work.data, form.tech_company.data, form.coworkers.data, form.wellness_program.data]
         final = [np.array(int_features)]

@@ -81,7 +81,7 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 1001;
-    background-color: var(--color-primary-light);
+    background-color: var(--color-primary);
 }
 
 .navbar__logo-text {

@@ -1,80 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-      <a href="static/Site_icon.png"><img src="static/Site_icon.png" alt="" width = "50"></a>
-      <a class="navbar-brand" href="{{url_for('core.info')}}">Bloggers</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active navbar-spacing">
-          <a class="nav-link" title="Home" href="{{url_for('core.index')}}">
-            <svg class="bi bi-house-door" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
-              <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-            </svg> <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item active navbar-spacing">
-          <a class="nav-link" title="Info" href="{{url_for('core.info')}}">
-            <svg class="bi bi-info-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-            </svg> <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        {%if current_user.is_authenticated%}
-
-        <li class="nav-item active navbar-spacing">
-          <a class="nav-link" title="Create Post" href="{{url_for('blogpost.create_post')}}">
-            <svg class="bi bi-plus-circle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
-            </svg> <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item active account-icon dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Your account">
-            <svg class="bi bi-person-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-              <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-              <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-            </svg> <span class="sr-only">(current)</span>
+    <nav class="navbar-change">
+        <a class="navbar__logo-container">
+            <p class="navbar__logo-text">Name</p>
         </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{url_for('users.account')}}">Acount Info</a>
-            <a class="dropdown-item" title="logout" href="{{url_for('users.logout')}}">Logout
-              <svg class="bi bi-power" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
-                <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
-              </svg>
-            </a>
-          </div>
-        </li>
-        {%else%}
-        <li class="nav-item active navbar-spacing">
-          <a class="nav-link" title="Login" href="{{url_for('users.login')}}"> Log in <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active navbar-spacing">
-          <a class="nav-link" title="Register" href="{{url_for('users.register')}}"> Register <span class="sr-only">(current)</span></a>
-        </li>
+        <div class="navbar__links">
 
-        {%endif%}
-        <a href="" title="Reset" class="navbar-spacing reset-icon" >
-        <svg class="bi bi-arrow-clockwise" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M3.17 6.706a5 5 0 0 1 7.103-3.16.5.5 0 1 0 .454-.892A6 6 0 1 0 13.455 5.5a.5.5 0 0 0-.91.417 5 5 0 1 1-9.375.789z"/>
-          <path fill-rule="evenodd" d="M8.147.146a.5.5 0 0 1 .707 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 1 1-.707-.708L10.293 3 8.147.854a.5.5 0 0 1 0-.708z"/>
-        </svg>
-        </a>
-        <div >
-          {%block head%}
+            <a class="navbar__link" href="{{url_for('core.info')}}">Home</a>
+            <a class="navbar__link" href="{{url_for('core.index')}}">Community Forums</a>
+            <a class="navbar__link" href="{{url_for('users.account')}}">Account</a>
+            <a class="navbar__link" href="{{url_for('users.logout')}}">Logout</a>
+            <a class="navbar__link" href="{{url_for('blogpost.create_post')}}">Ask a question</a>
+            <a class="navbar__link" href="{{url_for('users.predict')}}">Take the Test</a>
+            {%block head%}{%endblock%}
 
-          {%endblock%}
         </div>
 
-    </div>
     </nav>
+
     <meta charset="utf-8">
     <title>Social | Bloggers</title>
 
@@ -86,13 +31,27 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </head>
   <body class="">
-      <br><br><br><br><br><br><br>
+      <br><br><br><br><br>
 
       {%block content%}
 
       {%endblock%}
 
+      <script>
+      const nav = document.querySelector('.navbar');
+      console.log(nav)
 
+      window.addEventListener('scroll', () => {
+          let scroll = window.scrollY;
+          if (scroll > 70) {
+              nav.classList.add('navbar-change')
+          }
+
+          else {
+              nav.classList.remove('navbar-change')
+          }
+      })
+      </script>
 
   </body>
 </html>
