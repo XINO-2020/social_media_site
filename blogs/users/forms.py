@@ -58,18 +58,18 @@ class UpdateUserForm(FlaskForm):
 class PredictionForm(FlaskForm):
     age = IntegerField('Age', validators=[DataRequired()])
     gender = RadioField('Gender', choices=[
-                        (0, 'Male'), (1, 'Female'), (2, 'Trans')])
+                        ('0', 'Male'), ('1', 'Female'), ('2', 'Trans')])
     family_history = RadioField('Family History of Mental Illness', choices=[
-                                (1, 'Yes'), (0, 'No')])
+                                ('1', 'Yes'), ('0', 'No')])
     self_employed = RadioField('Are you Self Employed?', choices=[
-                               (1, 'Yes'), (2, 'No')])
+                               ('1', 'Yes'), ('0', 'No')])
     remote_work = RadioField('Do you work remotely?',
-                             choices=[(1, 'Yes'), (2, 'No')])
+                             choices=[('1', 'Yes'), ('0', 'No')])
     tech_company = RadioField('Do you work in a tech company?', choices=[
-                              (1, 'Yes'), (2, 'No')])
+                              ('1', 'Yes'), ('0', 'No')])
     coworkers = RadioField('Has any of your coworkers suffered from any mental illness?',
-                           choices=[(1, 'Yes'), (0, 'No'), (2, "Don't Know")])
+                           choices=[('1', 'Yes'), ('0', 'No'), ('2', "Don't Know")])
     wellness_program = RadioField('Have you been a part of any wellness program?', choices=[
-                                  (1, 'Yes'), (0, 'No'), (2, "Don't Know")])
+                                  ('1', 'Yes'), ('0', 'No'), ('2', "Don't Know")])
 
     submit = SubmitField('Submit')

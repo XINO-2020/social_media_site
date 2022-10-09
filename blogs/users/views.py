@@ -27,20 +27,20 @@ def predict():
 
     if form.validate_on_submit():
         print('lol')
-        int_features = [form.age.data,
-                        form.gender.data, form.family_history.data, form.self_employed.data, form.remote_work.data, form.tech_company.data, form.coworkers.data, form.wellness_program.data]
+        int_features = [int(form.age.data),
+                        int(form.gender.data), int(form.family_history.data), int(form.self_employed.data), int(form.remote_work.data), int(form.tech_company.data), int(form.coworkers.data), int(form.wellness_program.data)]
         final = [np.array(int_features)]
         print(final)
         prediction = model.predict_proba(final)
 
         output = '{0:.{1}f}'.format(prediction[0][1], 3)
-
+        pred=''
         if output > str(0.5):
-            return render_template('test.htm', pred='You need a treatment.\nProbability of mental illness is {}'.format(output))
+            pred='You need a treatment.\nProbability of mental illness is {}%'.format(str(float(output)*100))
         else:
-            return render_template('test.htm', pred='You do not need treatment.\n Probability of mental illness is {}'.format(output))
+            pred='You do not need treatment.\n Probability of mental illness is {}%'.format(str(float(output)*100))
 
-    return render_template('test.htm', form=form)
+    return render_template('test.htm', form=form,pred=pred)
 
 
 @users.route('/register', methods=['GET', 'POST'])
