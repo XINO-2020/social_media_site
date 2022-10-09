@@ -122,7 +122,7 @@ body {
 
 .landing-hero {
     min-height: 100vh;
-    background-image: url('../img/bg.png');
+    background-image: url('../static/bg.png');
     background-size: 100% 100%;
     display: flex;
     align-items: center;
@@ -312,7 +312,7 @@ body {
 
 /* CONCLUSION SECTION */
 .conclusion {
-    background-image: url('../img/bg\ upside\ down.png');
+    background-image: url('../static/bg\ upside\ down.png');
     margin-top: 10rem;
     height: 45rem;
     position: relative;
@@ -446,12 +446,11 @@ body {
 
 /* FORUM PAGE */
 .forum-hero {
-    background-image: url('../img/bg.png');
+    background-image: url('../static/bg.png');
     position: relative;
 }
 
 /*ARNAV CSS*/
-
 .col{
 	color: #72829c;
 
@@ -484,7 +483,14 @@ body {
   animation-name: right;
   animation-duration: 2s;
 }
-
+body{
+  background-color: #f8f2fa;
+	font-family: 'Pangolin', cursive;
+	font-family: 'Ubuntu', sans-serif;
+}
+nav{
+  background-color: #ffffff;
+}
 }
 
 
