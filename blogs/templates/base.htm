@@ -2,36 +2,38 @@
 <html lang="en" dir="ltr">
   <head>
 
-    <nav class="navbar-change">
-        <a class="navbar__logo-container">
-            <p class="navbar__logo-text">Name</p>
-        </a>
-        <div class="navbar__links">
-
-            <a class="navbar__link" href="{{url_for('core.info')}}">Home</a>
-            <a class="navbar__link" href="{{url_for('core.index')}}">Community Forums</a>
-            <a class="navbar__link" href="{{url_for('users.account')}}">Account</a>
-            <a class="navbar__link" href="{{url_for('users.logout')}}">Logout</a>
-            <a class="navbar__link" href="{{url_for('blogpost.create_post')}}">Ask a question</a>
-            <a class="navbar__link" href="{{url_for('users.predict')}}">Take the Test</a>
-            {%block head%}{%endblock%}
-
-        </div>
-
-    </nav>
 
     <meta charset="utf-8">
     <title>Social | Bloggers</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </head>
   <body class="">
-      <br><br><br><br><br>
+
+    <nav class="navbar-change">
+      <a class="navbar__logo-container">
+      </a>
+      <div class="navbar__links">
+
+          <a class="navbar__link" href="{{url_for('core.info')}}">Home</a>
+          <a class="navbar__link" href="{{url_for('core.index')}}">Community Forums</a>
+          <a class="navbar__link" href="{{url_for('blogpost.create_post')}}">Ask a question</a>
+          <a class="navbar__link" href="{{url_for('users.predict')}}">Take the Test</a>
+          <a class="navbar__link" href="{{url_for('users.account')}}">Account</a>
+          <a class="navbar__link" href="{{url_for('users.logout')}}">Logout</a>
+
+          {%block head%}{%endblock%}
+
+
+      </div>
+
+  </nav>
 
       {%block content%}
 

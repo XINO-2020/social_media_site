@@ -1,56 +1,71 @@
 {%extends 'base.htm'%}
 {%block content%}
 
-<div class="container col" align ="center">
+<div class="test-hero" align="center">
   <br><br><br>
-  <h1 align = "center">Predict</h1>
+  <h1 class="heading-1" align = "center">Predict</h1>
   {{pred}}
   <form  method="POST">
     {{form.hidden_tag()}}
-    <div class="form-group">
-      {{form.age.label}}{{form.age(class = 'form-control col-md-6' ,placeholder="Ages" )}}
+    <div class="test__group">
+      <p class="test-hero__ques-no">Question 01</p>
+      {{form.age.label(class = "test-hero__ques")}}{{form.age(class = 'form__input' ,placeholder="Ages" )}}
       {%if form.age.errors%}
         {%for error in form.age.errors%}
-          <small class = 'text-danger'>{{error}}</small>
+          <small class = 'form__danger'>{{error}}</small>
         {%endfor%}
       {%endif%}
     </div>
-    <div class="form-group">
-        {{form.gender.label}}{{form.gender(placeholder="Gender" )}}
+    <div class="test__group">
+      <p class="test-hero__ques-no">Question 02</p>
+        {{form.gender.label(class = "test-hero__ques")}}{{form.gender(class = 'test__option', placeholder="Gender" )}}
         {%if form.gender.errors%}
           {%for error in form.gender.errors%}
             <small class = 'text-danger'>{{error}}</small>
           {%endfor%}
         {%endif%}
     </div>
-    <div class="form-group">
-        {{form.family_history.label}}{{form.family_history(placeholder="Family History" )}}
+    <div class="test__group">
+      <p class="test-hero__ques-no">Question 03</p>
+        {{form.family_history.label(class = "test-hero__ques")}}{{form.family_history(placeholder="Family History" )}}
         {%if form.family_history.errors%}
           {%for error in form.family_history.errors%}
             <small class = 'text-danger'>{{error}}</small>
           {%endfor%}
         {%endif%}
     </div>
-    <div class="form-group">
-        {{form.self_employed.label}}{{form.self_employed(placeholder="self_employed" )}}
+    <div class="test__group">
+      <p class="test-hero__ques-no">Question 04</p>
+        {{form.self_employed.label(class = "test-hero__ques")}}{{form.self_employed(placeholder="self_employed" )}}
     </div>
-    <div class="form-group">
-        {{form.remote_work.label}}{{form.remote_work(placeholder="remote_work" )}}
+    <div class="test__group">
+      <p class="test-hero__ques-no">Question 05</p>
+        {{form.remote_work.label(class = "test-hero__ques")}}{{form.remote_work(placeholder="remote_work" )}}
     </div>
-    <div class="form-group">
-        {{form.tech_company.label}}{{form.tech_company(placeholder="tech_company" )}}
+    <div class="test__group">
+      <p class="test-hero__ques-no">Question 06</p>
+        {{form.tech_company.label(class = "test-hero__ques")}}{{form.tech_company(placeholder="tech_company" )}}
     </div>
-    <div class="form-group">
-        {{form.coworkers.label}}{{form.coworkers(placeholder="coworkers" )}}
+    <div class="test__group">
+      <p class="test-hero__ques-no">Question 07</p>
+        {{form.coworkers.label(class = "test-hero__ques")}}{{form.coworkers(placeholder="coworkers" )}}
     </div>
-    <div class="form-group">
-        {{form.wellness_program.label}}{{form.wellness_program(placeholder="wellness_program" )}}
+    <div class="test__group">
+      <p class="test-hero__ques-no">Question 08</p>
+        {{form.wellness_program.label(class = "test-hero__ques")}}{{form.wellness_program(placeholder="wellness_program" )}}
     </div>
-    <div class="form-group">
-      {{form.submit(class ="btn btn-primary")}}
+    <div class="test__group">
+      {{form.submit(class ="btn btn-primary-color")}}
     </div>
   </form>
 </div>
 
+<footer class="footer">
+  <p class="footer__text"> Made with <span
+    style="color:rgb(249, 16, 105);">♥</span>
+  by
+  team XINO
+  </p>
+</footer>
 
 {%endblock%}

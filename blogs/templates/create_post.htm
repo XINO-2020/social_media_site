@@ -1,17 +1,18 @@
 {%extends "base.htm"%}
 {%block content%}
-  <div class="container">
-    <form class="form-group" method="POST" action="" enctype="multipart/form-data">
+  <div class="account-container">
+    <form class="form" method="POST" action="" enctype="multipart/form-data">
+      <h1 class="heading-1 mgb">Ask Away</h1>
       {{form.hidden_tag()}}
       <div class="form-group">
-        {{form.title.label(class = 'form-control-label ')}}
-        {{form.title(class = 'form-control form-control-lg')}}
+        {{form.title.label(class = 'test-hero__ques-no block')}}
+        {{form.title(class = 'form__input width-full')}}
       </div>
       <div class="form-group">
-        {{form.text.label(class = 'form-control-label ')}}
-        {{form.text(class = 'form-control form-control')}}
+        {{form.text.label(class = 'test-hero__ques-no block')}}
+        {{form.text(class = 'form__input width-full')}}
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         {{form.picture.label(class="form-group col-md-6")}}
         {{form.picture(class="form-control-file col-md-6  ")}}
         {%if form.picture.errors%}
@@ -19,9 +20,9 @@
             <small class = 'text-danger'>{{error}}</small>
           {%endfor%}
         {%endif%}
-      </div>
+      </div> -->
       <div class="form-group">
-        {{form.submit(class  ='btn  btn-primary', align ='center')}}
+        {{form.submit(class  ='btn  btn-primary-color', align ='center')}}
       </div>
     </form>
 
