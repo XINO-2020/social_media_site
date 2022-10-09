@@ -1,0 +1,40 @@
+{%extends 'base.htm'%}
+{%block content%}
+
+<div class="container col" align ="center">
+  <br><br><br>
+  <h1 align = "center">Predict</h1>
+  <form  method="POST">
+    {{form.hidden_tag()}}
+    <div class="form-group">
+      {{form.age.label}}{{form.age(class = 'form-control col-md-6' ,placeholder="Ages" )}}
+    </div>
+    <div class="form-group">
+        {{form.gender.label}}{{form.gender(placeholder="Gender" )}}
+    </div>
+    <div class="form-group">
+        {{form.family_history.label}}{{form.family_history(placeholder="Family History" )}}
+    </div>
+    <div class="form-group">
+        {{form.self_employed.label}}{{form.self_employed(placeholder="self_employed" )}}
+    </div>
+    <div class="form-group">
+        {{form.remote_work.label}}{{form.remote_work(placeholder="remote_work" )}}
+    </div>
+    <div class="form-group">
+        {{form.tech_company.label}}{{form.tech_company(placeholder="tech_company" )}}
+    </div>
+    <div class="form-group">
+        {{form.coworkers.label}}{{form.coworkers(placeholder="coworkers" )}}
+    </div>
+    <div class="form-group">
+        {{form.wellness_program.label}}{{form.wellness_program(placeholder="wellness_program" )}}
+    </div>
+    <div class="form-group">
+      {{form.submit(class ="btn btn-primary")}}
+    </div>
+  </form>
+</div>
+
+
+{%endblock%}
