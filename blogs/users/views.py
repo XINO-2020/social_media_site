@@ -17,9 +17,9 @@ def logout():
     logout_user()
     return redirect(url_for("core.index"))
 
-@users.route('/predict')
-def predict():
-    
+# @users.route('/predict')
+# def predict():
+
 
 @users.route('/register' , methods = ['GET','POST'])
 def register():
