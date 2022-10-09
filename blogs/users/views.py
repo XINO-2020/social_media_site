@@ -6,6 +6,8 @@ from blogs.models import User,BlogPost
 from blogs.users.forms import RegistrationForm,LoginForm,UpdateUserForm
 from blogs.users.picture_handler import add_profile_pic
 from sqlalchemy import desc
+import pickle
+import numpy as np
 
 users = Blueprint('users', __name__)
 #register.login.logout.acoount.bloglist
@@ -14,6 +16,10 @@ users = Blueprint('users', __name__)
 def logout():
     logout_user()
     return redirect(url_for("core.index"))
+
+@users.route('/predict')
+def predict():
+    
 
 @users.route('/register' , methods = ['GET','POST'])
 def register():
