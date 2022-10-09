@@ -68,7 +68,7 @@
             <div class="blog__card-body">
               <div class="">
                 <h2><a class = 'blog__card-title mgb' href="{{url_for('blogpost.blog_post', blog_post_id=post.id)}}">{{post.title}}</a></h2>
-                <a href="{{url_for('static', filename= post.author.profile_image)}}"><img src="{{url_for('static', filename= post.author.profile_image)}}" class = "rounded-circle" width = "50"></a>
+                <a href="{{url_for('static', filename= post.author.profile_image)}}"></a>
                 <a href="{{url_for('users.user_posts',username = post.author.username)}}">Written By: {{post.author.fname}}({{post.author.username}})</a>
                 <p>Published on: {{post.date.strftime('%Y-%m-%d')}}</p>
                 <a href="{{url_for('static', filename= post.blog_image)}}"><img src="{{url_for('static', filename= post.blog_image)}}" alt="" align = "center" width = "200" height = "110"></a>
@@ -86,7 +86,7 @@
             <div class="blog__card-body">
               <div class="">
                 <h2><a class = 'blog__card-title mgb' href="{{url_for('blogpost.blog_post', blog_post_id=post.id)}}">{{post.title}}</a></h2>
-                <a href="{{url_for('static', filename= post.author.profile_image)}}"><img src="{{url_for('static', filename= post.author.profile_image)}}" class = "rounded-circle" width = "50"></a>
+                <a href="{{url_for('static', filename= post.author.profile_image)}}"></a>
                 <a href="{{url_for('users.user_posts',username = post.author.username)}}">Written By: {{post.author.fname}}({{post.author.username}})</a>
                 <p>Published on: {{post.date.strftime('%Y-%m-%d')}}</p>
                 <a href="{{url_for('static', filename= post.blog_image)}}"><img src="{{url_for('static', filename= post.blog_image)}}" alt="" align = "center" width = "200" height = "110"></a>
