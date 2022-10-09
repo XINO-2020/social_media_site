@@ -24,7 +24,7 @@ def logout():
 def predict():
     form = PredictionForm()
     model = pickle.load(open('blogs/users/model.pkl', 'rb'))
-
+    pred=''
     if form.validate_on_submit():
         print('lol')
         int_features = [int(form.age.data),
