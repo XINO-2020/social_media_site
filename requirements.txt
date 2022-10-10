@@ -156,3 +156,4 @@ wikipedia==1.4.0
 wincertstore==0.2
 wrapt==1.12.1
 WTForms==2.1
+joblib==0.14
