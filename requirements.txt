@@ -132,7 +132,7 @@ qrcode==6.1
 qrtools==0.0.2
 regex==2021.4.4
 requests==2.25.1
-requests-oauthlib==0.8.0
+requests-oauthlib==1.0.0
 resampy==0.2.2
 rfc3986==1.4.0
 rsa==4.6
