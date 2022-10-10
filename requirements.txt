@@ -112,7 +112,6 @@ pymongo==3.12.0
 PyMsgBox==1.0.9
 pyparsing==2.4.7
 pyperclip==1.8.2
-pypiwin32==223
 PyQRCode==1.2.1
 PyRect==0.1.4
 PyScreeze==0.1.27
@@ -126,9 +125,6 @@ python-utils==2.4.0
 PyTweening==1.0.3
 pytz==2020.1
 pywhatkit==4.7
-PyYAML==5.3.1
-pyzbar==0.1.8
-qrcode==6.1
 qrtools==0.0.2
 regex==2021.4.4
 requests==2.25.1
